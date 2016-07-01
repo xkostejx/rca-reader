@@ -42,7 +42,7 @@ def main():
 					chipid = chipidsearch.group(1)
 					#print "CardID = %s" % (chipid)
 
-					user = db.getUserByChipId(chipid)	
+					user = db.getUserByChipId(chipid)
 					if not user:
 						ldapuser = ldap.getLdapUserByChipId(chipid)
 						if ldapuser is None:
@@ -55,7 +55,6 @@ def main():
 						if user:
 							# username in db, but with different chipcard
 							db.updateChipCard(user, chipid)
-			
 						else:			
 							# new username, adding to db
 							db.insertUserFromLdap(ldapuser, chipid)
@@ -64,9 +63,9 @@ def main():
 						# it's ok
 						# user with chipcard already in db
 						pass
-					
-					db.insertCoffee(user)
+                   			
 					gpio.successSeq()
+					db.insertCoffee(user)
 								
 				else:
 					gpio.failSeq()
