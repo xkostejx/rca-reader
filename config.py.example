@@ -1,0 +1,13 @@
+class config():
+	BUZZER     = 32
+	LED_RED    = 36
+	LED_GREEN  = 38
+	LED_BLUE   = 40
+
+	DB_HOST    = "localhost"
+	DB_USER    = "rca"
+	DB_PASS    = "password"
+	DB_NAME    = "rca"
+
+	LDAP_SRV   = "ldaps://ldap.server.example"
+	
