@@ -12,6 +12,7 @@ class mydb():
 		self.db = db
 
 		self.conn = MySQLdb.connect(self.host, self.user, self.passwd, self.db, use_unicode=True, charset="utf8")
+		self.conn.ping(True)
 		self.cur = self.conn.cursor(MySQLdb.cursors.DictCursor)
 
 	

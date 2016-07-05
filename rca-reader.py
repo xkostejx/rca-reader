@@ -23,6 +23,8 @@ LDAP_SRV   = c.LDAP_SRV
 
 def main():
 	gpio = mygpio(LED_RED, LED_GREEN, LED_BLUE, BUZZER)
+	db = None
+	ldap = None
 
 	while True:
 		try:
@@ -75,9 +77,13 @@ def main():
 		except Exception as error:
 			# Bad state (mysql, ldap, ...), reboot of raspberry is needed
 			print error	
-			db.close()
-			ldap.close()
-			#20s blinking RED
+			if db:
+				db.close()
+			
+			if ldap:
+				ldap.close()
+			
+			#15s blinking RED
 			gpio.ledFail(LED_RED, 1)
 
 		print "Error occurred, restarting rca-reader"

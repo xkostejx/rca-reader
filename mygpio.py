@@ -51,7 +51,7 @@ class mygpio():
 
 	def ledFail(self, led, interval):
 		self.ledAllOff()
-		for i in xrange(0, 20):
+		for i in xrange(0, 15):
 			GPIO.output(led, GPIO.HIGH)
                         time.sleep(interval)
                         GPIO.output(led, GPIO.LOW)
